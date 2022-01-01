@@ -1,0 +1,41 @@
+.TH USBREDIRSERVER "1" "April 2012" "usbredirserver" "User Commands"
+.SH NAME
+usbredirserver \- exporting an USB device for use from another (virtual) machine
+.SH SYNOPSIS
+.B usbredirserver
+[\fI-p|--port <port>\fR] [\fI-v|--verbose <0-5>\fR] [\fI-4 <ipv4_addr|I-6 <ipv6_addr>]
+\fI<busnum-devnum|vendorid:prodid>\fR
+.SH DESCRIPTION
+usbredirserver is a small standalone server for exporting an USB device for
+use from another (virtual) machine through the usbredir protocol.
+.PP
+You can specify the USB device to export either by USB id in the form of
+\fI<vendorid>:<prodid>\fR, or by USB bus number and device address in the form
+of \fI<usbbus>-<usbaddr>\fR.
+.PP
+Notice that an instance of usbredirserver can only be used to export a
+single USB device. If you want to export multiple devices you can start
+multiple instances listening on different TCP ports.
+.SH OPTIONS
+.TP
+\fB\-p\fR, \fB\-\-port\fR=\fIPORT\fR
+Set the TCP port to listen on to \fIPORT\fR
+.TP
+\fB\-v\fR, \fB\-\-verbose\fR=\fIVERBOSE\fR
+Set usbredirserver's verbosity level to \fIVERBOSE\fR, this mostly affects USB
+redirection related messages. Valid values are 0-5:
+.br
+0:Silent 1:Errors 2:Warnings 3:Info 4:Debug 5:Debug++
+.SH AUTHOR
+Written by Hans de Goede <hdegoede@redhat.com>
+.SH REPORTING BUGS
+You can report bugs to the spice-devel mailinglist:
+http://lists.freedesktop.org/mailman/listinfo/spice-devel
+or filing an issue at:
+https://gitlab.freedesktop.org/spice/usbredir/issues/new
+.SH COPYRIGHT
+Copyright 2010-2012 Red Hat, Inc.
+License GPLv2+: GNU GPL version 2 or later <http://gnu.org/licenses/gpl.html>.
+.br
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
